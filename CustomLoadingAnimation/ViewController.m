@@ -15,7 +15,7 @@
 @property (nonatomic) IBOutlet CustomSpinner *spinner;
 @property (nonatomic) NSMutableArray *imageArray;
 @property (nonatomic) NSInteger count;
-@property (nonatomic) UIImage *gif;
+@property (nonatomic) BOOL showing;
 
 @end
 
@@ -27,7 +27,7 @@
     self.imageArray = [[NSMutableArray alloc] initWithObjects:@"puppy", @"cat", @"duck", @"trump", nil];
     self.count = 0;
     [self changePic];
-    
+
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(changePic) userInfo:nil repeats:YES];
 }
 
@@ -35,9 +35,18 @@
     self.backgroundImage.image = [UIImage imageNamed:self.imageArray[self.count]];
     if (self.count == 3) {
         self.count = 0;
-        [self.spinner stopSpinner];
     } else {
         self.count++;
+    }
+}
+
+- (IBAction)showSpinner:(id)sender {
+    if (self.showing) {
+        [self.spinner hideSpinner];
+        self.showing = NO;
+    } else {
+        [self.spinner showSpinner];
+        self.showing = YES;
     }
 }
 

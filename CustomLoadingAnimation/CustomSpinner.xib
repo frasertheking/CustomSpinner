@@ -32,7 +32,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tdgif" translatesAutoresizingMaskIntoConstraints="NO" id="sl0-40-44o">
+                                        <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tdgif" translatesAutoresizingMaskIntoConstraints="NO" id="sl0-40-44o">
                                             <rect key="frame" x="1.5" y="5.5" width="66" height="59"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="66" id="GUY-af-Ec5"/>

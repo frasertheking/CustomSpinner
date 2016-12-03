@@ -1,14 +1,17 @@
-//
-//  CustomSpinner.m
-//  CustomLoadingAnimation
-//
-//  Created by Fraser King on 2016-12-02.
-//  Copyright © 2016 Fraser King. All rights reserved.
-//
-
 #import "CustomSpinner.h"
 
+// Spinner constants
+NSString *const spinnerGifURL = @"https://frasertheking.com/images/newgif2.gif";
+static CGFloat kAnimationAppearDisappearDuration = 0.2f;
+static CGFloat kAnimationBoundDuration = 0.1f;
+static CGFloat kSpinnerTinyScale = 0.05f;
+static CGFloat kSpinnerNormalScale = 1.0f;
+static CGFloat kSpinnerLargeScale = 1.25f;
+
 @interface CustomSpinner()
+
+@property (nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic) IBOutlet UIImageView *imageViewBackground;
 
 @end
 
@@ -19,14 +22,14 @@
     [self initialize];
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder{
+- (id)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {
         [self initialize];
     }
     return self;
 }
 
--(id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self initialize];
@@ -39,13 +42,46 @@
     xibView.frame = self.bounds;
     xibView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self addSubview: xibView];
-    self.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"https://frasertheking.com/images/newgif2.gif"]];
+    self.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:spinnerGifURL]];
+    self.alpha = 0;
 }
 
-- (void)stopSpinner {
-    [UIView animateWithDuration:1.0f animations:^{
-        self.imageViewBackground.alpha = 1.0f;
-        self.imageView.alpha = 0.0f;
+- (void)showSpinner {
+    if (self.isSpinning) {
+        NSLog(@"WARNING: Trying to show already displayed spinner");
+        return;
+    }
+    
+    self.transform = CGAffineTransformMakeScale(kSpinnerTinyScale, kSpinnerTinyScale);
+    self.alpha = 1;
+    self.isSpinning = YES;
+    
+    // Bounce small -> large -> normal
+    [UIView animateKeyframesWithDuration:kAnimationBoundDuration delay:0 options:0 animations:^{
+        self.transform = CGAffineTransformMakeScale(kSpinnerLargeScale, kSpinnerLargeScale);
+    } completion:^(BOOL finished) {
+        [UIView animateKeyframesWithDuration:kAnimationAppearDisappearDuration delay:0 options:0 animations:^{
+            self.transform = CGAffineTransformMakeScale(kSpinnerNormalScale, kSpinnerNormalScale);
+        } completion:nil];
+    }];
+}
+
+- (void)hideSpinner {
+    if (!self.isSpinning) {
+        NSLog(@"WARNING: Trying to hide already hidden spinner");
+        return;
+    }
+    self.isSpinning = NO;
+    
+    // Bounce normal -> large -> small
+    [UIView animateKeyframesWithDuration:kAnimationBoundDuration delay:0 options:0 animations:^{
+        self.transform = CGAffineTransformMakeScale(kSpinnerLargeScale, kSpinnerLargeScale);
+    } completion:^(BOOL finished) {
+        [UIView animateKeyframesWithDuration:kAnimationAppearDisappearDuration delay:0 options:0 animations:^{
+            self.transform = CGAffineTransformMakeScale(kSpinnerTinyScale, kSpinnerTinyScale);
+        } completion:^(BOOL finished) {
+            self.alpha = 0;
+        }];
     }];
 }
 

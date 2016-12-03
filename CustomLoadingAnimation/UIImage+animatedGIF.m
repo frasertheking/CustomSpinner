@@ -1,11 +1,3 @@
-//
-//  UIImage+animatedGIF.m
-//  CustomLoadingAnimation
-//
-//  Created by Fraser King on 2016-12-01.
-//  Copyright © 2016 Fraser King. All rights reserved.
-//
-
 #import "UIImage+animatedGIF.h"
 #import <ImageIO/ImageIO.h>
 
