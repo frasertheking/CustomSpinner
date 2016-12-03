@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Assistant View Controller-->
+        <scene sceneID="YZz-6f-afX">
+            <objects>
+                <viewController storyboardIdentifier="AssistantViewController" modalPresentationStyle="overCurrentContext" id="Tz1-p1-NhC" customClass="AssistantViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A8o-eG-PzN"/>
+                        <viewControllerLayoutGuide type="bottom" id="gn7-ao-NjS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EzB-Nt-rRz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-zm-ASL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qtl-d4-T7e">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-VJ-7XP" customClass="SCSiriWaveformView">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="GNc-VP-HfX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                        <color key="value" red="0.0" green="1" blue="0.98683816194534302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nke-Nb-M4k">
+                                <rect key="frame" x="16" y="26" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="1QH-gV-7kv"/>
+                                    <constraint firstAttribute="height" constant="30" id="4zF-Nw-D1B"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="Tz1-p1-NhC" eventType="touchUpInside" id="Jx9-tE-eAj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hln-WQ-fOv">
+                                <rect key="frame" x="168" y="197" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="8FO-mB-NTW"/>
+                                    <constraint firstAttribute="height" constant="40" id="H3U-cV-lVy"/>
+                                </constraints>
+                                <state key="normal" image="microphone">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="listenPressed:" destination="Tz1-p1-NhC" eventType="touchUpInside" id="vbP-VK-h7l"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tt-me-O3c">
+                                <rect key="frame" x="32" y="269" width="311" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="V64-gJ-KkT"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tt-me-O3c" firstAttribute="top" secondItem="hln-WQ-fOv" secondAttribute="bottom" constant="32" id="4iy-9s-0mc"/>
+                            <constraint firstItem="Fd3-zm-ASL" firstAttribute="leading" secondItem="EzB-Nt-rRz" secondAttribute="leading" id="5LT-QZ-KwG"/>
+                            <constraint firstItem="hln-WQ-fOv" firstAttribute="centerY" secondItem="EzB-Nt-rRz" secondAttribute="centerY" multiplier="0.65" id="7P1-xK-wAk"/>
+                            <constraint firstItem="gn7-ao-NjS" firstAttribute="top" secondItem="Fd3-zm-ASL" secondAttribute="bottom" id="8h4-QX-i4g"/>
+                            <constraint firstItem="nke-Nb-M4k" firstAttribute="leading" secondItem="EzB-Nt-rRz" secondAttribute="leadingMargin" id="9ST-rr-nrQ"/>
+                            <constraint firstAttribute="trailing" secondItem="P8S-VJ-7XP" secondAttribute="trailing" id="FJH-iz-K2x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Tt-me-O3c" secondAttribute="trailing" constant="16" id="Hqb-yi-a9B"/>
+                            <constraint firstItem="6Tt-me-O3c" firstAttribute="leading" secondItem="EzB-Nt-rRz" secondAttribute="leadingMargin" constant="16" id="KCd-Ma-r6y"/>
+                            <constraint firstAttribute="trailing" secondItem="Fd3-zm-ASL" secondAttribute="trailing" id="M1K-g4-qHW"/>
+                            <constraint firstItem="nke-Nb-M4k" firstAttribute="top" secondItem="A8o-eG-PzN" secondAttribute="bottom" constant="6" id="Q3T-MQ-zNQ"/>
+                            <constraint firstItem="hln-WQ-fOv" firstAttribute="centerX" secondItem="EzB-Nt-rRz" secondAttribute="centerX" id="oWo-4N-Jz4"/>
+                            <constraint firstItem="P8S-VJ-7XP" firstAttribute="leading" secondItem="EzB-Nt-rRz" secondAttribute="leading" id="uPj-wh-dMh"/>
+                            <constraint firstItem="gn7-ao-NjS" firstAttribute="top" secondItem="P8S-VJ-7XP" secondAttribute="bottom" id="uoH-4b-hjx"/>
+                            <constraint firstItem="Fd3-zm-ASL" firstAttribute="top" secondItem="EzB-Nt-rRz" secondAttribute="top" id="yCh-Hx-vsC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="maK-Jj-ksw"/>
+                    <connections>
+                        <outlet property="audioButton" destination="hln-WQ-fOv" id="sSm-ew-kEx"/>
+                        <outlet property="closeButton" destination="nke-Nb-M4k" id="gEW-nP-agn"/>
+                        <outlet property="textView" destination="6Tt-me-O3c" id="kuO-jG-Hrg"/>
+                        <outlet property="waveformView" destination="P8S-VJ-7XP" id="Fae-J2-qGp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FH3-HQ-IlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="1397"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel" width="100" height="100"/>
+        <image name="microphone" width="25" height="25"/>
+    </resources>
+</document>

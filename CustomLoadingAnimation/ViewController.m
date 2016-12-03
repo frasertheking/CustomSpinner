@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CustomSpinner.h"
+#import "AssistantViewController.h"
 
 @interface ViewController ()
 
@@ -50,5 +51,11 @@
     }
 }
 
+- (IBAction)showAssistant:(id)sender {
+    AssistantViewController *assistantViewController = [[UIStoryboard storyboardWithName:@"Assistant" bundle:nil] instantiateViewControllerWithIdentifier:@"AssistantViewController"];
+    assistantViewController.view.backgroundColor = [UIColor clearColor];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:assistantViewController animated:YES completion:nil];
+}
 
 @end

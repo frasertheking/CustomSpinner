@@ -16,9 +16,14 @@
 		43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */; };
 		43E4E69B1DF2559700A0F53B /* CustomSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E69A1DF2559700A0F53B /* CustomSpinner.m */; };
 		43E4E69D1DF255AE00A0F53B /* CustomSpinner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E69C1DF255AE00A0F53B /* CustomSpinner.xib */; };
+		43E4E6A31DF276F400A0F53B /* AssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6A11DF276F400A0F53B /* AssistantViewController.m */; };
+		43E4E6A41DF276F400A0F53B /* Assistant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E6A21DF276F400A0F53B /* Assistant.storyboard */; };
+		43E4E6A81DF2771100A0F53B /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6A71DF2771100A0F53B /* SCSiriWaveformView.m */; };
+		B69F94C22C59B1382B1F5035 /* Pods_CustomLoadingAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDB0F2ACCEC34B7838F3E8 /* Pods_CustomLoadingAnimation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39FE39475019DAFA68BB7F7A /* Pods-CustomLoadingAnimation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomLoadingAnimation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomLoadingAnimation/Pods-CustomLoadingAnimation.release.xcconfig"; sourceTree = "<group>"; };
 		43E4E67B1DF0FA4F00A0F53B /* CustomLoadingAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomLoadingAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E4E67F1DF0FA4F00A0F53B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43E4E6811DF0FA4F00A0F53B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,6 +39,13 @@
 		43E4E6991DF2559700A0F53B /* CustomSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSpinner.h; sourceTree = "<group>"; };
 		43E4E69A1DF2559700A0F53B /* CustomSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSpinner.m; sourceTree = "<group>"; };
 		43E4E69C1DF255AE00A0F53B /* CustomSpinner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSpinner.xib; sourceTree = "<group>"; };
+		43E4E6A01DF276F400A0F53B /* AssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssistantViewController.h; sourceTree = "<group>"; };
+		43E4E6A11DF276F400A0F53B /* AssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssistantViewController.m; sourceTree = "<group>"; };
+		43E4E6A21DF276F400A0F53B /* Assistant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assistant.storyboard; sourceTree = "<group>"; };
+		43E4E6A61DF2771100A0F53B /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
+		43E4E6A71DF2771100A0F53B /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
+		9EFDB0F2ACCEC34B7838F3E8 /* Pods_CustomLoadingAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomLoadingAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A277527CEF2962611BDD6BE6 /* Pods-CustomLoadingAnimation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomLoadingAnimation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomLoadingAnimation/Pods-CustomLoadingAnimation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69F94C22C59B1382B1F5035 /* Pods_CustomLoadingAnimation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +65,8 @@
 			children = (
 				43E4E67D1DF0FA4F00A0F53B /* CustomLoadingAnimation */,
 				43E4E67C1DF0FA4F00A0F53B /* Products */,
+				A52DC25AF5E8466E4E828832 /* Pods */,
+				4D922135AAE68D9C11531F27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +81,7 @@
 		43E4E67D1DF0FA4F00A0F53B /* CustomLoadingAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				43E4E6A51DF2770000A0F53B /* Assistant */,
 				43E4E69E1DF25EDE00A0F53B /* CustomSpinner */,
 				43E4E6811DF0FA4F00A0F53B /* AppDelegate.h */,
 				43E4E6821DF0FA4F00A0F53B /* AppDelegate.m */,
@@ -108,6 +124,43 @@
 			name = GIFCategory;
 			sourceTree = "<group>";
 		};
+		43E4E6A51DF2770000A0F53B /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				43E4E6A91DF2771500A0F53B /* Waveform */,
+				43E4E6A01DF276F400A0F53B /* AssistantViewController.h */,
+				43E4E6A11DF276F400A0F53B /* AssistantViewController.m */,
+				43E4E6A21DF276F400A0F53B /* Assistant.storyboard */,
+			);
+			name = Assistant;
+			sourceTree = "<group>";
+		};
+		43E4E6A91DF2771500A0F53B /* Waveform */ = {
+			isa = PBXGroup;
+			children = (
+				43E4E6A61DF2771100A0F53B /* SCSiriWaveformView.h */,
+				43E4E6A71DF2771100A0F53B /* SCSiriWaveformView.m */,
+			);
+			name = Waveform;
+			sourceTree = "<group>";
+		};
+		4D922135AAE68D9C11531F27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDB0F2ACCEC34B7838F3E8 /* Pods_CustomLoadingAnimation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A52DC25AF5E8466E4E828832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A277527CEF2962611BDD6BE6 /* Pods-CustomLoadingAnimation.debug.xcconfig */,
+				39FE39475019DAFA68BB7F7A /* Pods-CustomLoadingAnimation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43E4E6921DF0FA4F00A0F53B /* Build configuration list for PBXNativeTarget "CustomLoadingAnimation" */;
 			buildPhases = (
+				66CD84597CFD142C939D9798 /* [CP] Check Pods Manifest.lock */,
 				43E4E6771DF0FA4F00A0F53B /* Sources */,
 				43E4E6781DF0FA4F00A0F53B /* Frameworks */,
 				43E4E6791DF0FA4F00A0F53B /* Resources */,
+				E9C1154A44FE29BAE2AC3442 /* [CP] Embed Pods Frameworks */,
+				2B821175FE0B13E638DE59D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,10 +227,59 @@
 				43E4E68E1DF0FA4F00A0F53B /* LaunchScreen.storyboard in Resources */,
 				43E4E68B1DF0FA4F00A0F53B /* Assets.xcassets in Resources */,
 				43E4E6891DF0FA4F00A0F53B /* Main.storyboard in Resources */,
+				43E4E6A41DF276F400A0F53B /* Assistant.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B821175FE0B13E638DE59D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomLoadingAnimation/Pods-CustomLoadingAnimation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66CD84597CFD142C939D9798 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C1154A44FE29BAE2AC3442 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomLoadingAnimation/Pods-CustomLoadingAnimation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		43E4E6771DF0FA4F00A0F53B /* Sources */ = {
@@ -182,9 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E4E6861DF0FA4F00A0F53B /* ViewController.m in Sources */,
+				43E4E6A31DF276F400A0F53B /* AssistantViewController.m in Sources */,
 				43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */,
 				43E4E69B1DF2559700A0F53B /* CustomSpinner.m in Sources */,
 				43E4E6831DF0FA4F00A0F53B /* AppDelegate.m in Sources */,
+				43E4E6A81DF2771100A0F53B /* SCSiriWaveformView.m in Sources */,
 				43E4E6801DF0FA4F00A0F53B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +410,7 @@
 		};
 		43E4E6931DF0FA4F00A0F53B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A277527CEF2962611BDD6BE6 /* Pods-CustomLoadingAnimation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WQ4X98Q4GE;
@@ -315,6 +423,7 @@
 		};
 		43E4E6941DF0FA4F00A0F53B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39FE39475019DAFA68BB7F7A /* Pods-CustomLoadingAnimation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WQ4X98Q4GE;

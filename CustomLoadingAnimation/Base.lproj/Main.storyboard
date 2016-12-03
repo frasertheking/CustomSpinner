@@ -39,13 +39,22 @@
                                     <action selector="showSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBi-2s-qZ8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W58-r4-T6n">
+                                <rect key="frame" x="164" y="20" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showAssistant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfe-YK-Ys1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="W58-r4-T6n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9dM-fG-axO"/>
                             <constraint firstAttribute="trailing" secondItem="5DV-GO-FKG" secondAttribute="trailing" id="Igv-kO-4hf"/>
                             <constraint firstItem="Id0-JQ-mG2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lni-ug-Z9V"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5DV-GO-FKG" secondAttribute="bottom" id="VOF-4Q-iyf"/>
                             <constraint firstItem="5DV-GO-FKG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="W3l-FF-nAR"/>
+                            <constraint firstItem="W58-r4-T6n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fC5-SB-hwV"/>
                             <constraint firstItem="Khq-61-E6R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fDi-1D-TtQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Khq-61-E6R" secondAttribute="bottom" constant="34" id="hE8-un-mzO"/>
                             <constraint firstItem="5DV-GO-FKG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mYV-0f-BWd"/>
