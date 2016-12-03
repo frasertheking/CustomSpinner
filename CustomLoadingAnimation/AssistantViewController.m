@@ -1,5 +1,11 @@
 #import "AssistantViewController.h"
 
+static CGFloat kAnimationDuration = 0.4f;
+static CGFloat kTextAnimationDelay = 0.15f;
+static CGFloat kAudioButtonAnimationDelay = 0.3f;
+static CGFloat kSoundSpokenThresholdValue = 0.2f;
+static CGFloat kSoundStoppedThresholdValue = 0.075f;
+
 @interface AssistantViewController ()
 
 @property (nonatomic) SFSpeechRecognizer *speechRecognizer;
@@ -8,6 +14,7 @@
 @property (nonatomic) AVAudioEngine *audioEngine;
 @property (nonatomic) AVAudioRecorder *psudoRecorder;
 @property (nonatomic) CADisplayLink *displaylink;
+@property (nonatomic) ApiAI *apiAI;
 @property (nonatomic) BOOL spoken;
 
 @end
@@ -17,19 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Assistant";
-    UIImage *image = [[UIImage imageNamed:@"cancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.closeButton setImage:image forState:UIControlStateNormal];
-    self.closeButton.tintColor = [UIColor whiteColor];
-    self.displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters)];
-    [self.displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    self.audioButton.tintColor = [UIColor whiteColor];
-    self.audioButton.alpha = 0;
-    self.waveformView.alpha = 0;
-    self.textView.alpha = 0;
-    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    self.textView.text = @"How can I help?\n\nTap the microphone to begin";
-    
+    [self setupViews];
     [self setupRecorder];
     [self setupSpeechKit];
     [self setupAPIAI];
@@ -38,15 +33,15 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [UIView animateWithDuration:0.4 delay:0.3 options:0 animations:^{
+    [UIView animateWithDuration:kAnimationDuration delay:kAudioButtonAnimationDelay options:0 animations:^{
         self.audioButton.alpha = 1;
     } completion:nil];
     
-    [UIView animateWithDuration:0.4 delay:0.15 options:0 animations:^{
+    [UIView animateWithDuration:kAnimationDuration delay:kTextAnimationDelay options:0 animations:^{
         self.textView.alpha = 1;
     } completion:nil];
     
-    [UIView animateWithDuration:0.4 delay:0 options:0 animations:^{
+    [UIView animateWithDuration:kAnimationDuration delay:0 options:0 animations:^{
         self.waveformView.alpha = 1;
     } completion:nil];
 }
@@ -58,11 +53,28 @@
     [self.displaylink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
+#pragma mark - Setup
+
+- (void)setupViews {
+    [self.closeButton setImage:[[UIImage imageNamed:@"cancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.closeButton.tintColor = [UIColor whiteColor];
+    self.audioButton.tintColor = [UIColor whiteColor];
+    self.audioButton.alpha = 0;
+    self.waveformView.alpha = 0;
+    self.textView.alpha = 0;
+    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.textView.text = @"How can I help?\n\nTap the microphone to begin";
+    
+    // Add audiowave animation to runloop
+    self.displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters)];
+    [self.displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+}
+
 - (void)setupRecorder {
     NSDictionary *settings = @{AVSampleRateKey:          [NSNumber numberWithFloat: 44100.0],
-                               AVFormatIDKey:            [NSNumber numberWithInt: kAudioFormatAppleLossless],
-                               AVNumberOfChannelsKey:    [NSNumber numberWithInt: 2],
-                               AVEncoderAudioQualityKey: [NSNumber numberWithInt: AVAudioQualityMin]};
+                               AVFormatIDKey:            [NSNumber numberWithInt:   kAudioFormatAppleLossless],
+                               AVNumberOfChannelsKey:    [NSNumber numberWithInt:   2],
+                               AVEncoderAudioQualityKey: [NSNumber numberWithInt:   AVAudioQualityMin]};
     
     NSError *error;
     NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
@@ -99,13 +111,13 @@
 }
 
 - (void)setupAPIAI {
-    // Setting up API.ai client
     self.apiAI = [[ApiAI alloc] init];
     id <AIConfiguration> configuration = [[AIDefaultConfiguration alloc] init];
-    configuration.clientAccessToken = @"afd41e39550e4f77bec38f0e1209117c";
-    
+    configuration.clientAccessToken = @"afd41e39550e4f77bec38f0e1209117c"; // TODO CHANGE THIS
     self.apiAI.configuration = configuration;
 }
+
+#pragma mark - Actions
 
 - (IBAction)listenPressed:(id)sender {
     if (self.audioEngine.isRunning) {
@@ -173,7 +185,6 @@
             [inputNode removeTapOnBus:0];
             self.recognitionRequest = nil;
             self.recognitionTask = nil;
-            
             [self getVoiceCommandMeaning];
         }
     }];
@@ -197,64 +208,42 @@
 #pragma mark - API.ai
 
 - (void)getVoiceCommandMeaning {
+    [self.customSpinner showSpinner];
     self.audioButton.enabled = NO;
     AITextRequest *request = [self.apiAI textRequest];
     request.query = @[self.textView.text];
     [request setCompletionBlockSuccess:^(AIRequest *request, id response) {
         if (response) {
-            [self handleResponse:response];
+            [self performSelector:@selector(handleSuccess:) withObject:response afterDelay:2.0f];
         }
     } failure:^(AIRequest *request, NSError *error) {
-        [self handleError:error];
+        [self performSelector:@selector(handleError:) withObject:error afterDelay:2.0f];
     }];
     
     [self.apiAI enqueue:request];
 }
 
-- (void)handleResponse:(id)response {
+- (void)handleSuccess:(id)response {
+    [self.customSpinner hideSpinner];
     self.audioButton.enabled = YES;
-    NSString *action = [[response valueForKey:@"result"] valueForKey:@"action"];
-    NSString *track = [[[response valueForKey:@"result"] valueForKey:@"parameters"] valueForKey:@"track"];
-    NSString *speech = [[[response valueForKey:@"result"] valueForKey:@"fulfillment"] valueForKey:@"speech"];
-//    NSInteger item = [self.objectManager.audioInfoArray indexOfObject:[self.objectManager getObjectByName:track]];
-
-//    if ([action isEqualToString:@"play"] && item < [self.objectManager.audioInfoArray count]) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangePlaylistNotification" object:nil];
-//        [self.mainTabController playAudio:item completion:^{
-//            // TODO
-//        }];
-//    } else if ([action isEqualToString:@"pause"]) {
-//        [self.mainTabController pausePlayingAudio];
-//    } else if ([action isEqualToString:@"add"]) {
-//        if (![GlobalHelpers alreadyInPlaylist:item]) {
-//            [GlobalHelpers addOrRemoveFromPlaylist:item];
-//        }
-//    } else if ([action isEqualToString:@"remove"]) {
-//        if ([GlobalHelpers alreadyInPlaylist:item]) {
-//            [GlobalHelpers addOrRemoveFromPlaylist:item];
-//        }
-//    } else if ([action isEqualToString:@"randomize-playlist"]) {
-//        [GlobalHelpers shufflePlaylist];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaylistUpdate" object:nil];
-//    } else if ([action isEqualToString:@"play-playlist"]) {
-//        NSMutableArray *playlistArray = [GlobalHelpers getPlaylist];
-//        if ([playlistArray count] > 0) {
-//            [self.mainTabController playlistAudio:[playlistArray[0] integerValue] completion:^{
-//                // TODO
-//            }];
-//        }
-//    } else if ([action isEqualToString:@"empty-playlist"]) {
-//        [GlobalHelpers removeAllFromPlaylist];
-//    }
     
+    // TODO: Handle Responses
+    NSString *speech = [[[response valueForKey:@"result"] valueForKey:@"fulfillment"] valueForKey:@"speech"];
+
+//    NSString *action = [[response valueForKey:@"result"] valueForKey:@"action"];
+//    if ([action isEqualToString:@"ACTION"]) {
+//        DO SOMETHING
+//    }
+
     self.textView.text = speech;
-//    self.textView.textColor = UIColorFromRGB(PRIMARY);
     [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
 }
 
 - (void)handleError:(NSError *)error {
+    [self.customSpinner hideSpinner];
     self.audioButton.enabled = YES;
-    self.textView.text = error.localizedDescription;
+    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.textView.text = @"Sorry an error occured.\nPlease try again";
 }
 
 #pragma mark - Waveform delegate
@@ -262,19 +251,19 @@
 - (void)updateMeters {
     CGFloat normalizedValue;
     [self.psudoRecorder updateMeters];
-    normalizedValue = [self _normalizedPowerLevelFromDecibels:[self.psudoRecorder averagePowerForChannel:0]];
+    normalizedValue = [self normalizedPowerLevelFromDecibels:[self.psudoRecorder averagePowerForChannel:0]];
     [self.waveformView updateWithLevel:normalizedValue*2];
     
-    if (normalizedValue > 0.2) {
+    if (normalizedValue > kSoundSpokenThresholdValue) {
         self.spoken = YES;
     }
     
-    if (normalizedValue < 0.05 && self.spoken) {
+    if (normalizedValue < kSoundStoppedThresholdValue && self.spoken) {
         [self stopListening];
     }
 }
 
-- (CGFloat)_normalizedPowerLevelFromDecibels:(CGFloat)decibels {
+- (CGFloat)normalizedPowerLevelFromDecibels:(CGFloat)decibels {
     if (decibels < -60.0f || decibels == 0.0f) {
         return 0.1f;
     }

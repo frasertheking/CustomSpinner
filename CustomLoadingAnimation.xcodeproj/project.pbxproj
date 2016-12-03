@@ -19,6 +19,7 @@
 		43E4E6A31DF276F400A0F53B /* AssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6A11DF276F400A0F53B /* AssistantViewController.m */; };
 		43E4E6A41DF276F400A0F53B /* Assistant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E6A21DF276F400A0F53B /* Assistant.storyboard */; };
 		43E4E6A81DF2771100A0F53B /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6A71DF2771100A0F53B /* SCSiriWaveformView.m */; };
+		43F791451DF316BE004B9D78 /* animated_spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 43F791441DF316BE004B9D78 /* animated_spinner.gif */; };
 		B69F94C22C59B1382B1F5035 /* Pods_CustomLoadingAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDB0F2ACCEC34B7838F3E8 /* Pods_CustomLoadingAnimation.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		43E4E6A21DF276F400A0F53B /* Assistant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assistant.storyboard; sourceTree = "<group>"; };
 		43E4E6A61DF2771100A0F53B /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
 		43E4E6A71DF2771100A0F53B /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
+		43F791441DF316BE004B9D78 /* animated_spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated_spinner.gif; sourceTree = "<group>"; };
 		9EFDB0F2ACCEC34B7838F3E8 /* Pods_CustomLoadingAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomLoadingAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277527CEF2962611BDD6BE6 /* Pods-CustomLoadingAnimation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomLoadingAnimation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomLoadingAnimation/Pods-CustomLoadingAnimation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 		43E4E69F1DF25EEB00A0F53B /* GIFCategory */ = {
 			isa = PBXGroup;
 			children = (
+				43F791441DF316BE004B9D78 /* animated_spinner.gif */,
 				43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */,
 				43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */,
 			);
@@ -226,6 +229,7 @@
 				43E4E69D1DF255AE00A0F53B /* CustomSpinner.xib in Resources */,
 				43E4E68E1DF0FA4F00A0F53B /* LaunchScreen.storyboard in Resources */,
 				43E4E68B1DF0FA4F00A0F53B /* Assets.xcassets in Resources */,
+				43F791451DF316BE004B9D78 /* animated_spinner.gif in Resources */,
 				43E4E6891DF0FA4F00A0F53B /* Main.storyboard in Resources */,
 				43E4E6A41DF276F400A0F53B /* Assistant.storyboard in Resources */,
 			);

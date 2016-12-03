@@ -1,9 +1,8 @@
 #import "CustomSpinner.h"
 
-// Spinner constants
 NSString *const spinnerGifURL = @"https://frasertheking.com/images/newgif2.gif";
 static CGFloat kAnimationAppearDisappearDuration = 0.2f;
-static CGFloat kAnimationBoundDuration = 0.1f;
+static CGFloat kAnimationBounceDuration = 0.1f;
 static CGFloat kSpinnerTinyScale = 0.05f;
 static CGFloat kSpinnerNormalScale = 1.0f;
 static CGFloat kSpinnerLargeScale = 1.25f;
@@ -42,7 +41,14 @@ static CGFloat kSpinnerLargeScale = 1.25f;
     xibView.frame = self.bounds;
     xibView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self addSubview: xibView];
-    self.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:spinnerGifURL]];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        NSString *filePath = [[NSBundle mainBundle] pathForResource: @"animated_spinner" ofType: @"gif"];
+        NSData *gifData = [NSData dataWithContentsOfFile: filePath];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            self.imageView.image = [UIImage animatedImageWithAnimatedGIFData:gifData];
+        });
+    });
     self.alpha = 0;
 }
 
@@ -57,10 +63,10 @@ static CGFloat kSpinnerLargeScale = 1.25f;
     self.isSpinning = YES;
     
     // Bounce small -> large -> normal
-    [UIView animateKeyframesWithDuration:kAnimationBoundDuration delay:0 options:0 animations:^{
+    [UIView animateKeyframesWithDuration:kAnimationAppearDisappearDuration delay:0 options:0 animations:^{
         self.transform = CGAffineTransformMakeScale(kSpinnerLargeScale, kSpinnerLargeScale);
     } completion:^(BOOL finished) {
-        [UIView animateKeyframesWithDuration:kAnimationAppearDisappearDuration delay:0 options:0 animations:^{
+        [UIView animateKeyframesWithDuration:kAnimationBounceDuration delay:0 options:0 animations:^{
             self.transform = CGAffineTransformMakeScale(kSpinnerNormalScale, kSpinnerNormalScale);
         } completion:nil];
     }];
@@ -74,7 +80,7 @@ static CGFloat kSpinnerLargeScale = 1.25f;
     self.isSpinning = NO;
     
     // Bounce normal -> large -> small
-    [UIView animateKeyframesWithDuration:kAnimationBoundDuration delay:0 options:0 animations:^{
+    [UIView animateKeyframesWithDuration:kAnimationBounceDuration delay:0 options:0 animations:^{
         self.transform = CGAffineTransformMakeScale(kSpinnerLargeScale, kSpinnerLargeScale);
     } completion:^(BOOL finished) {
         [UIView animateKeyframesWithDuration:kAnimationAppearDisappearDuration delay:0 options:0 animations:^{
