@@ -7,13 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "UIImage+animatedGIF.h"
+#import "CustomSpinner.h"
 
 @interface ViewController ()
 
 @property (nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic) IBOutlet UIImageView *imageViewBackground;
+@property (nonatomic) IBOutlet CustomSpinner *spinner;
 @property (nonatomic) NSMutableArray *imageArray;
 @property (nonatomic) NSInteger count;
 @property (nonatomic) UIImage *gif;
@@ -29,8 +28,6 @@
     self.count = 0;
     [self changePic];
     
-    self.gif = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:@"https://frasertheking.com/images/newgif2.gif"]];
-    self.imageView.image = self.gif;
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(changePic) userInfo:nil repeats:YES];
 }
 
@@ -38,10 +35,7 @@
     self.backgroundImage.image = [UIImage imageNamed:self.imageArray[self.count]];
     if (self.count == 3) {
         self.count = 0;
-        [UIView animateWithDuration:1 animations:^{
-            self.imageViewBackground.alpha = 1;
-            self.imageView.alpha = 0;
-        }];
+        [self.spinner stopSpinner];
     } else {
         self.count++;
     }

@@ -14,6 +14,8 @@
 		43E4E68B1DF0FA4F00A0F53B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E68A1DF0FA4F00A0F53B /* Assets.xcassets */; };
 		43E4E68E1DF0FA4F00A0F53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E68C1DF0FA4F00A0F53B /* LaunchScreen.storyboard */; };
 		43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */; };
+		43E4E69B1DF2559700A0F53B /* CustomSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E69A1DF2559700A0F53B /* CustomSpinner.m */; };
+		43E4E69D1DF255AE00A0F53B /* CustomSpinner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E69C1DF255AE00A0F53B /* CustomSpinner.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		43E4E68F1DF0FA4F00A0F53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		43E4E6991DF2559700A0F53B /* CustomSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSpinner.h; sourceTree = "<group>"; };
+		43E4E69A1DF2559700A0F53B /* CustomSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSpinner.m; sourceTree = "<group>"; };
+		43E4E69C1DF255AE00A0F53B /* CustomSpinner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSpinner.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 		43E4E67D1DF0FA4F00A0F53B /* CustomLoadingAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				43E4E69E1DF25EDE00A0F53B /* CustomSpinner */,
 				43E4E6811DF0FA4F00A0F53B /* AppDelegate.h */,
 				43E4E6821DF0FA4F00A0F53B /* AppDelegate.m */,
 				43E4E6841DF0FA4F00A0F53B /* ViewController.h */,
@@ -70,8 +76,6 @@
 				43E4E68C1DF0FA4F00A0F53B /* LaunchScreen.storyboard */,
 				43E4E68F1DF0FA4F00A0F53B /* Info.plist */,
 				43E4E67E1DF0FA4F00A0F53B /* Supporting Files */,
-				43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */,
-				43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */,
 			);
 			path = CustomLoadingAnimation;
 			sourceTree = "<group>";
@@ -82,6 +86,26 @@
 				43E4E67F1DF0FA4F00A0F53B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43E4E69E1DF25EDE00A0F53B /* CustomSpinner */ = {
+			isa = PBXGroup;
+			children = (
+				43E4E69F1DF25EEB00A0F53B /* GIFCategory */,
+				43E4E6991DF2559700A0F53B /* CustomSpinner.h */,
+				43E4E69A1DF2559700A0F53B /* CustomSpinner.m */,
+				43E4E69C1DF255AE00A0F53B /* CustomSpinner.xib */,
+			);
+			name = CustomSpinner;
+			sourceTree = "<group>";
+		};
+		43E4E69F1DF25EEB00A0F53B /* GIFCategory */ = {
+			isa = PBXGroup;
+			children = (
+				43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */,
+				43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */,
+			);
+			name = GIFCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E4E69D1DF255AE00A0F53B /* CustomSpinner.xib in Resources */,
 				43E4E68E1DF0FA4F00A0F53B /* LaunchScreen.storyboard in Resources */,
 				43E4E68B1DF0FA4F00A0F53B /* Assets.xcassets in Resources */,
 				43E4E6891DF0FA4F00A0F53B /* Main.storyboard in Resources */,
@@ -158,6 +183,7 @@
 			files = (
 				43E4E6861DF0FA4F00A0F53B /* ViewController.m in Sources */,
 				43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */,
+				43E4E69B1DF2559700A0F53B /* CustomSpinner.m in Sources */,
 				43E4E6831DF0FA4F00A0F53B /* AppDelegate.m in Sources */,
 				43E4E6801DF0FA4F00A0F53B /* main.m in Sources */,
 			);
@@ -318,6 +344,7 @@
 				43E4E6941DF0FA4F00A0F53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -24,79 +24,28 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="5DV-GO-FKG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSU-so-37e">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Id0-JQ-mG2" customClass="CustomSpinner">
                                 <rect key="frame" x="152.5" y="298.5" width="70" height="70"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j0d-E8-hEC">
-                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbR-A0-voM">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aAY-Se-Hp6">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tdgif" translatesAutoresizingMaskIntoConstraints="NO" id="VJL-W1-iXp">
-                                                        <rect key="frame" x="1.5" y="5.5" width="66" height="59"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="59" id="Ttd-mh-Lyd"/>
-                                                            <constraint firstAttribute="width" constant="66" id="cmi-4X-98q"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="udK-7o-Faq">
-                                                        <rect key="frame" x="1.5" y="5.5" width="66" height="59"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="66" id="Jdj-cB-sM9"/>
-                                                            <constraint firstAttribute="height" constant="59" id="iyc-GQ-lN9"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="VJL-W1-iXp" firstAttribute="centerX" secondItem="aAY-Se-Hp6" secondAttribute="centerX" id="1Sj-Sp-PD3"/>
-                                                    <constraint firstItem="udK-7o-Faq" firstAttribute="centerY" secondItem="aAY-Se-Hp6" secondAttribute="centerY" id="F5l-TU-lFo"/>
-                                                    <constraint firstItem="udK-7o-Faq" firstAttribute="centerX" secondItem="aAY-Se-Hp6" secondAttribute="centerX" id="LkE-7R-yrO"/>
-                                                    <constraint firstItem="VJL-W1-iXp" firstAttribute="centerY" secondItem="aAY-Se-Hp6" secondAttribute="centerY" id="OBk-f6-R9c"/>
-                                                </constraints>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="bbR-A0-voM" secondAttribute="trailing" id="FmC-R6-N1a"/>
-                                        <constraint firstItem="bbR-A0-voM" firstAttribute="leading" secondItem="j0d-E8-hEC" secondAttribute="leading" id="JLL-SH-KFZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="bbR-A0-voM" secondAttribute="bottom" id="d46-H3-aZb"/>
-                                        <constraint firstItem="bbR-A0-voM" firstAttribute="top" secondItem="j0d-E8-hEC" secondAttribute="top" id="sYV-0d-aK9"/>
-                                    </constraints>
-                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="237-ri-JNT"/>
-                                    <constraint firstAttribute="height" constant="70" id="mVQ-uX-9GI"/>
+                                    <constraint firstAttribute="width" constant="70" id="enn-3e-UVs"/>
+                                    <constraint firstAttribute="height" constant="70" id="fPh-0d-Wjy"/>
                                 </constraints>
-                                <blurEffect style="light"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </visualEffectView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nSU-so-37e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4jf-fV-2AE"/>
                             <constraint firstAttribute="trailing" secondItem="5DV-GO-FKG" secondAttribute="trailing" id="Igv-kO-4hf"/>
+                            <constraint firstItem="Id0-JQ-mG2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lni-ug-Z9V"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5DV-GO-FKG" secondAttribute="bottom" id="VOF-4Q-iyf"/>
                             <constraint firstItem="5DV-GO-FKG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="W3l-FF-nAR"/>
                             <constraint firstItem="5DV-GO-FKG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mYV-0f-BWd"/>
-                            <constraint firstItem="nSU-so-37e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pqL-PA-rea"/>
+                            <constraint firstItem="Id0-JQ-mG2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yJt-4a-jzM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="5DV-GO-FKG" id="T6U-dD-hB2"/>
-                        <outlet property="imageView" destination="udK-7o-Faq" id="E5K-B9-rbZ"/>
-                        <outlet property="imageViewBackground" destination="VJL-W1-iXp" id="BbB-Hy-MmV"/>
+                        <outlet property="spinner" destination="Id0-JQ-mG2" id="SRr-pQ-mTT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,6 +54,5 @@
     </scenes>
     <resources>
         <image name="puppy" width="750" height="1334"/>
-        <image name="tdgif" width="300" height="268"/>
     </resources>
 </document>
