@@ -51,6 +51,7 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
     
     [self stopListening];
     [self.displaylink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    self.displaylink = nil;
 }
 
 #pragma mark - Setup
@@ -128,6 +129,8 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
 }
 
 - (IBAction)closePressed:(id)sender {
+    [self.displaylink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    self.displaylink = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
