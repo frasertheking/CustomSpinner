@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,91 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="5DV-GO-FKG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSU-so-37e">
+                                <rect key="frame" x="152.5" y="298.5" width="70" height="70"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j0d-E8-hEC">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbR-A0-voM">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aAY-Se-Hp6">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tdgif" translatesAutoresizingMaskIntoConstraints="NO" id="VJL-W1-iXp">
+                                                        <rect key="frame" x="1.5" y="5.5" width="66" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="59" id="Ttd-mh-Lyd"/>
+                                                            <constraint firstAttribute="width" constant="66" id="cmi-4X-98q"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="udK-7o-Faq">
+                                                        <rect key="frame" x="1.5" y="5.5" width="66" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="66" id="Jdj-cB-sM9"/>
+                                                            <constraint firstAttribute="height" constant="59" id="iyc-GQ-lN9"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="VJL-W1-iXp" firstAttribute="centerX" secondItem="aAY-Se-Hp6" secondAttribute="centerX" id="1Sj-Sp-PD3"/>
+                                                    <constraint firstItem="udK-7o-Faq" firstAttribute="centerY" secondItem="aAY-Se-Hp6" secondAttribute="centerY" id="F5l-TU-lFo"/>
+                                                    <constraint firstItem="udK-7o-Faq" firstAttribute="centerX" secondItem="aAY-Se-Hp6" secondAttribute="centerX" id="LkE-7R-yrO"/>
+                                                    <constraint firstItem="VJL-W1-iXp" firstAttribute="centerY" secondItem="aAY-Se-Hp6" secondAttribute="centerY" id="OBk-f6-R9c"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bbR-A0-voM" secondAttribute="trailing" id="FmC-R6-N1a"/>
+                                        <constraint firstItem="bbR-A0-voM" firstAttribute="leading" secondItem="j0d-E8-hEC" secondAttribute="leading" id="JLL-SH-KFZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="bbR-A0-voM" secondAttribute="bottom" id="d46-H3-aZb"/>
+                                        <constraint firstItem="bbR-A0-voM" firstAttribute="top" secondItem="j0d-E8-hEC" secondAttribute="top" id="sYV-0d-aK9"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="237-ri-JNT"/>
+                                    <constraint firstAttribute="height" constant="70" id="mVQ-uX-9GI"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nSU-so-37e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4jf-fV-2AE"/>
+                            <constraint firstAttribute="trailing" secondItem="5DV-GO-FKG" secondAttribute="trailing" id="Igv-kO-4hf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5DV-GO-FKG" secondAttribute="bottom" id="VOF-4Q-iyf"/>
+                            <constraint firstItem="5DV-GO-FKG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="W3l-FF-nAR"/>
+                            <constraint firstItem="5DV-GO-FKG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mYV-0f-BWd"/>
+                            <constraint firstItem="nSU-so-37e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pqL-PA-rea"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="5DV-GO-FKG" id="T6U-dD-hB2"/>
+                        <outlet property="imageView" destination="udK-7o-Faq" id="E5K-B9-rbZ"/>
+                        <outlet property="imageViewBackground" destination="VJL-W1-iXp" id="BbB-Hy-MmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="puppy" width="750" height="1334"/>
+        <image name="tdgif" width="300" height="268"/>
+    </resources>
 </document>

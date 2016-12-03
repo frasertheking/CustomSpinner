@@ -13,6 +13,7 @@
 		43E4E6891DF0FA4F00A0F53B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E6871DF0FA4F00A0F53B /* Main.storyboard */; };
 		43E4E68B1DF0FA4F00A0F53B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E68A1DF0FA4F00A0F53B /* Assets.xcassets */; };
 		43E4E68E1DF0FA4F00A0F53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E4E68C1DF0FA4F00A0F53B /* LaunchScreen.storyboard */; };
+		43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		43E4E68A1DF0FA4F00A0F53B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43E4E68D1DF0FA4F00A0F53B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43E4E68F1DF0FA4F00A0F53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				43E4E68C1DF0FA4F00A0F53B /* LaunchScreen.storyboard */,
 				43E4E68F1DF0FA4F00A0F53B /* Info.plist */,
 				43E4E67E1DF0FA4F00A0F53B /* Supporting Files */,
+				43E4E6951DF0FCA800A0F53B /* UIImage+animatedGIF.h */,
+				43E4E6961DF0FCA800A0F53B /* UIImage+animatedGIF.m */,
 			);
 			path = CustomLoadingAnimation;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E4E6861DF0FA4F00A0F53B /* ViewController.m in Sources */,
+				43E4E6971DF0FCA800A0F53B /* UIImage+animatedGIF.m in Sources */,
 				43E4E6831DF0FA4F00A0F53B /* AppDelegate.m in Sources */,
 				43E4E6801DF0FA4F00A0F53B /* main.m in Sources */,
 			);
