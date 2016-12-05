@@ -23,7 +23,7 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setupViews];
     [self setupRecorder];
     [self setupSpeechKit];
@@ -63,8 +63,8 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
     self.audioButton.alpha = 0;
     self.waveformView.alpha = 0;
     self.textView.alpha = 0;
-    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     self.textView.text = @"How can I help?\n\nTap the microphone to begin";
+    [self resetMicrophoneImage];
     
     // Add audiowave animation to runloop
     self.displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters)];
@@ -148,6 +148,10 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
     self.spoken = NO;
 }
 
+- (void)resetMicrophoneImage {
+    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+}
+
 #pragma mark - Audio Recording
 
 - (void)startRecording {
@@ -188,7 +192,13 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
             [inputNode removeTapOnBus:0];
             self.recognitionRequest = nil;
             self.recognitionTask = nil;
-            [self getVoiceCommandMeaning];
+          
+            if (![self.textView.text isEqualToString:@""]) {
+                [self getVoiceCommandMeaning];
+            } else {
+                [self resetMicrophoneImage];
+                self.textView.text = @"How can I help?\n\nTap the microphone to begin";
+            }
         }
     }];
     
@@ -239,13 +249,13 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
 //    }
 
     self.textView.text = speech;
-    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self resetMicrophoneImage];
 }
 
 - (void)handleError:(NSError *)error {
     [self.customSpinner hideSpinner];
     self.audioButton.enabled = YES;
-    [self.audioButton setImage:[[UIImage imageNamed:@"microphone-large"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self resetMicrophoneImage];
     self.textView.text = @"Sorry an error occured.\nPlease try again";
 }
 
