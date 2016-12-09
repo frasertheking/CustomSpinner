@@ -114,7 +114,7 @@ static CGFloat kSoundStoppedThresholdValue = 0.075f;
 - (void)setupAPIAI {
     self.apiAI = [[ApiAI alloc] init];
     id <AIConfiguration> configuration = [[AIDefaultConfiguration alloc] init];
-    configuration.clientAccessToken = @"afd41e39550e4f77bec38f0e1209117c"; // TODO CHANGE THIS
+    configuration.clientAccessToken = @"KEY"; // TODO CHANGE THIS
     self.apiAI.configuration = configuration;
 }
 
